@@ -1,38 +1,54 @@
 <h1>ExpNo 4 : Implement A* search algorithm for a Graph</h1> 
-<h3>Name: K KESAVA SAI</h3>
-<h3>Register Number: 212223230105</h3>
+<h3>Name:K KESAVA SAI </h3>
+<h3>Register Number: 212223230105 </h3>
 <H3>Aim:</H3>
 <p>To ImplementA * Search algorithm for a Graph using Python 3.</p>
 <H3>Algorithm:</H3>
 
-1. Initialize the open list
+1.  Initialize the open list
+2.  Initialize the closed list
+    put the starting node on the open 
+    list (you can leave its f at zero)
 
-2. Initialize the closed list put the starting node on the open list (you can leave its f at zero)
+3.  while the open list is not empty
+    a) find the node with the least f on 
+       the open list, call it "q"
 
-3. While the open list is not empty
-
-   a. Find the node with the least f on the open list, call it "q"
-
-   b. Pop q off the open list
-
-   c. Generate q's 8 successors and set their parents to q for each successor
-
-      i. If successor is the goal, stop search
-
-      ii. Else, compute both g and h for successor
-          successor.g = q.g + distance between successor and successor.h = distance from goal to successor (This can be done using many ways, we will discuss three heuristics- Manhattan, Diagonal and Euclidean              Heuristics)
+    b) pop q off the open list
+  
+    c) generate q's 8 successors and set their 
+       parents to q
+   
+    d) for each successor
+        i) if successor is the goal, stop search
+        
+        ii) else, compute both g and h for successor
+          successor.g = q.g + distance between 
+                              successor and q
+          successor.h = distance from goal to 
+          successor (This can be done using many 
+          ways, we will discuss three heuristics- 
+          Manhattan, Diagonal and Euclidean 
+          Heuristics)
+          
           successor.f = successor.g + successor.h
 
-      iii. if a node with the same position as successor is in the OPEN list which has a lower f than successor, skip this successor
+        iii) if a node with the same position as 
+            successor is in the OPEN list which has a 
+           lower f than successor, skip this successor
 
-      iv. if a node with the same position as successor is in the CLOSED list which has a lower f than successor, skip this successor otherwise, add the node to the open list end (for loop)
+        iV) if a node with the same position as 
+            successor  is in the CLOSED list which has
+            a lower f than successor, skip this successor
+            otherwise, add  the node to the open list
+     end (for loop)
+  
+    e) push q on the closed list
+    end (while loop)
 
-   d. push q on the closed list end (while loop)
-
-<h3>Program:</h3>
-
-
-```
+<h3>PROGRAM:</h3>
+<pre>
+    <code>      
 from collections import defaultdict
 H_dist ={}
 def aStarAlgo(start_node, stop_node):
@@ -100,16 +116,16 @@ Graph_nodes=graph
 start=input()
 goal=input()
 aStarAlgo(start, goal)
-```
-
+    </code>
+</pre>
 <hr>
-<h3>Sample Graph I</h3>
+<h2>Sample Graph I</h2>
 <hr>
 
 ![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/b1377c3f-011a-4c0f-a843-516842ae056a)
 
 <hr>
-<h3>Sample Input</h3>
+<h2>Sample Input</h2>
 <hr>
 10 14 <br>
 A B 6 <br>
@@ -140,18 +156,17 @@ J 0 <br>
 <h2>Sample Output</h2>
 <hr>
 Path found: ['A', 'F', 'G', 'I', 'J']
-
-![alt text](OUTPUT/image.png)
-
+<br>
+<img width="237" height="399" alt="image" src="https://github.com/user-attachments/assets/41aef030-8aa3-42be-9287-1b257b361955" />
+<br>
 <hr>
-<h3>Sample Graph II</h3>
+<h2>Sample Graph II</h2>
 <hr>
 
 ![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/acbb09cb-ed39-48e5-a59b-2f8d61b978a3)
 
-
 <hr>
-<h3>Sample Input</h3>
+<h2>Sample Input</h2>
 <hr>
 6 6 <br>
 A B 2 <br>
@@ -167,11 +182,12 @@ E 7 <br>
 D 1 <br>
 G 0 <br>
 <hr>
-<h3>Sample Output</h3>
+<h2>Sample Output</h2>
 <hr>
 Path found: ['A', 'E', 'D', 'G']
+<br>
+<img width="215" height="242" alt="image" src="https://github.com/user-attachments/assets/022ffc92-154f-4135-b19f-f6cb4dcbe27f" />
+<br>
 
-![alt text](<OUTPUT/image copy.png>)
-
-<h3>Result:</h3>
-Thus a graph was constructed and implemantation of A star Search for the same graph was done successfully.
+<h3>RESULT:</h3>
+Therefore, a graph was constructed and implementation of A star Search for the same graph was done successfully.
